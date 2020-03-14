@@ -30,10 +30,13 @@ class UserDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        if self.request.user.is_authenticated == self.request.user:
-            context['file_add'] = FileBase.objects.filter(author=self.request.user)
+        if self.request.user.is_authenticated:
+            if self.request.user == self.object:
+                context['file_add'] = FileBase.objects.filter(author=self.request.user)
+            else:
+                context['file_add'] = FileBase.objects.filter(access='Common', author=self.request.user)
         else:
-            context['file_add'] = FileBase.objects.filter(access='Common', author=self.request.user)
+            context['file_add'] = FileBase.objects.filter(access='Common')
         return context
 
 

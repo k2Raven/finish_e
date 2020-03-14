@@ -11,9 +11,9 @@
 {% endblock %}
 
 {% block content %}
-
     <div class="row">
         {% for file_on in file_add %}
+            {% if user_obj == file_on.author %}
 
             <div class="col-6 col-md-4 col-lg-3 my-2">
                 <div class="card">
@@ -39,6 +39,7 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
         {% endfor %}
     </div>
 
