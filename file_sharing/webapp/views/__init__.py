@@ -1,1 +1,1 @@
-from .file_views import FilePage
+from .file_views import FilePage, FileAddPage

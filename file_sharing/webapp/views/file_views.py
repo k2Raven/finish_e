@@ -1,6 +1,8 @@
 from django.db.models import Q
 from webapp.models import FileBase
 from .base_view import SearchView
+from django.views.generic import CreateView
+from webapp.forms import FileAnonForm, FileForm
 
 
 
@@ -22,3 +24,19 @@ class FilePage(SearchView):
         return query
 
 
+class FileAddPage(CreateView):
+    model = FileBase
+    template_name = 'file_create.html'
+    success_url = '/'
+
+    def get_form_class(self):
+        if self.request.user.is_authenticated:
+            self.form_class = FileForm
+        else:
+            self.form_class = FileAnonForm
+        return self.form_class
+
+    def form_valid(self, form):
+        if self.request.user.is_authenticated:
+            form.instance.author = self.request.user
+        return super().form_valid(form)

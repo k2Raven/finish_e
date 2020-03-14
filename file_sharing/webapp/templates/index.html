@@ -2,6 +2,7 @@
 {% block title %}{% endblock %}
 {% block dropdown %}
     {% include 'partial/simple_search.html' %}
+    <a href="{% url 'webapp:file_add' %}" class="btn btn-success ml-3" role="button">Создать файл</a>
 {% endblock %}
 {% block content %}
     {% if is_paginated %}

@@ -14,7 +14,7 @@ GENERAI_ACCESS_FILECHOICES = (
 class FileBase(models.Model):
     name = models.CharField(max_length=128, verbose_name='Имя файла')
     file = models.FileField(upload_to='file_base', verbose_name='Фаил')
-    access = MultiSelectField(choices=GENERAI_ACCESS_FILECHOICES, default=GENERAI_ACCESS_FILECHOICES[0][0],
+    access = models.CharField(max_length=200, choices=GENERAI_ACCESS_FILECHOICES, default=GENERAI_ACCESS_FILECHOICES[0][0],
                               verbose_name='Доступ')
     author = models.ForeignKey(User, related_name='author_file', verbose_name='автор файла',
                                on_delete=models.SET_NULL, null=True, blank=True)
