@@ -57,3 +57,8 @@ class FileDeletePage(DeleteView):
     success_url = reverse_lazy('webapp:index')
 
 
+class FileUpdateView(UpdateView):
+    template_name = 'file_update.html'
+    model = FileBase
+    form_class = FileForm
+

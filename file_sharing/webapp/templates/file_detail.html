@@ -30,7 +30,7 @@
                                  <a href="{% url 'webapp:delete_file' filebase.pk %}" class="btn btn-danger">Удалить</a>
                             </div>
                             <div class="col-3">
-                                 <a href="#" class="btn btn-outline-info">Редактировать</a>
+                                 <a href="{% url 'webapp:update_file' filebase.pk %}" class="btn btn-outline-info">Редактировать</a>
                             </div>
                             {% endif %}
                             <div class="col-3">
