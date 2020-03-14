@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% csrf_token %}
+
+{% block title %}Пользователь{% endblock %}
+
+{% block dropdown %}
+    {% if user.pk == user_obj.pk %}
+        <li class="nav-item"><a class="nav-link" href="{% url 'accounts:update' user_obj.pk %}">Редактировать</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'accounts:password_change' user_obj.pk %}">Смена пароля</a></li>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+        <div class="card m-2">
+            <div class="card-header alert-dark">
+                Личный кабинет
+            </div>
+            <div class="card-body">
+              <div class="row no-gutters">
+                <div class="col-md-4 " style="max-width: 400px;">
+                    {% if user_obj.profile.avatar %}
+                        <img src="{{ user_obj.profile.avatar.url }}" class="card-img" alt="user picture">
+                    {% else %}
+                        <img src="{% static 'base_avatar.jpg' %}" class="card-img" alt="base picture">
+                    {% endif %}
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <p class="card-text">Имя пользователя: {{ user_obj.username }}</p>
+                    <p class="card-text">Имя: {{ user_obj.first_name }}</p>
+                    <p class="card-text">Фамилия: {{ user_obj.last_name }}</p>
+                    <p class="card-text">Почта: {{ user_obj.email }}</p>
+                    <p class="card-text">О себе: {{ user_obj.profile.about_me }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+{% endblock %}
