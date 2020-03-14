@@ -24,7 +24,9 @@
                         {% endif %}
                     </div>
                     <div class="card-body">
-                        <p>Название файла: {{ file_on.name}}</p>
+                        <p>Название файла:
+                            <a class="text-info" href="{% url 'webapp:detail_file' file_on.pk %}">{{ file_on.name}}</a>
+                        </p>
                         <p>дата загрузки: {{ file_on.creation_date|date:"d/m/Y" }}</p>
                     </div>
                     <div class="card-footer">

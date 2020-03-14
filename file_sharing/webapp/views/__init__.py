@@ -1,1 +1,1 @@
-from .file_views import FilePage, FileAddPage,FileDeletePage
+from .file_views import FilePage, FileAddPage,FileDeletePage, FileDetailPage

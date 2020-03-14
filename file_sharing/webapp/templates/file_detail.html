@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}{% endblock %}
+{% block dropdown %}
+    {% include 'partial/simple_search.html' %}
+    <a href="{% url 'webapp:file_add' %}" class="btn btn-success ml-3" role="button">Создать файл</a>
+{% endblock %}
+{% block content %}
+
+    <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        {% if filebase.author %}
+                            <p> Автор:
+                            <a class="text-info" href="{% url 'accounts:detail' filebase.author.pk %}">{{ filebase.author.username }}</a>
+                            </p>
+
+                        {% else%}
+                            <p> Автор: Аноним</p>
+                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                        <p>Название файла: {{ filebase.name}}</p>
+                        <p>дата загрузки: {{ filebase.creation_date|date:"d/m/Y" }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="col-3">
+
+                        </div>
+                        <div class="col-3">
+
+                        </div>
+                        <div class="col-3">
+                            <a href="{{ filebase.file.url }}" class="btn btn-outline-success ml-2" download>Скачать</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+{% endblock %}
