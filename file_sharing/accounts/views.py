@@ -15,7 +15,7 @@ def register_view(request, *args, **kwargs):
             user.save()
             Profile.objects.create(user=user)
             login(request, user)
-            return redirect('webapp:project_list')
+            return redirect('webapp:index')
 
     else:
         form = UserCreationForm()

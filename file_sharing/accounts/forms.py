@@ -48,13 +48,6 @@ class UserCreationForm(forms.ModelForm):
 class UserChangeForm(forms.ModelForm):
     avatar = forms.ImageField(label='Аватар', required=False)
     about_me = forms.CharField(max_length=3000, required=False, label='О себе', widget=widgets.Textarea)
-    git_http = forms.URLField(label='Профиль на гитхаб', required=False)
-
-    def clean_git_http(self):
-        git_http = self.cleaned_data['git_http']
-        if git_http == '' or not git_http.startswith('https://github.com/'):
-            raise forms.ValidationError('ссылка не на гитхаб')
-        return git_http
 
     def get_initial_for_field(self, field, field_name):
         if field_name in self.Meta.profile_fields:
@@ -78,7 +71,7 @@ class UserChangeForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'email', 'avatar', 'about_me', 'git_http']
+        fields = ['first_name', 'last_name', 'email', 'avatar', 'about_me']
         profile_fields = ['avatar', 'about_me']
         labels = {'first_name': 'Имя', 'last_name': 'Фамилия', 'email': 'Email'}
 

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}{% endblock %}
+{% block content %}
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
+
+    <div class="row">
+        {% for file_on in file_all %}
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="card">
+                    <div class="card-header">
+                        {% if file_on.author %}
+                            <h3> Автор: {{ file_on.author.username }}</h3>
+                        {% else%}
+                            <h3> Автор: Аноним</h3>
+                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                        <p>Название файла: {{ file_on.name_file }}</p>
+                    </div>
+                    <div class="card-footer">
+                        доступ : {{ file_on.access }}
+                        <a href="{{ file_on.file.url }}" class="btn btn-outline-success ml-2" download>Скачать</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
