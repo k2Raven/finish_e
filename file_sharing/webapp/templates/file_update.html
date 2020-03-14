@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}{% endblock %}
+{% block content %}
+    <div class="card m-2">
+            <div class="card-header">
+                Редактировать фаил
+            </div>
+
+            <div class="card-body">
+                <form method="POST" action="{% url 'webapp:update_file' filebase.pk %}" enctype="multipart/form-data">
+                    {% include 'partial/task_form.html' with button_text="Обновить" %}
+                </form>
+
+            </div>
+        </div>
+{% endblock %}
