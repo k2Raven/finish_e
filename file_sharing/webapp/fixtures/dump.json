@@ -1,0 +1,152 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$tz7EhF97ecfR$+0KihZimHpsulRRpf+p2VTfJJX4ZGN8AmooO8DVjsTY=",
+    "last_login": "2020-03-14T13:55:02.050Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2020-03-14T06:56:30.203Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "webapp.filebase",
+  "pk": 1,
+  "fields": {
+    "name": "fytewuyg",
+    "file": "file_base/1972195535.jpg",
+    "access": "Common",
+    "author": 1,
+    "creation_date": "2020-03-14T08:08:24.914Z",
+    "numder_of_downloads": 0
+  }
+},
+{
+  "model": "webapp.filebase",
+  "pk": 2,
+  "fields": {
+    "name": "fytewuyg",
+    "file": "file_base/admin_001.png",
+    "access": "Common",
+    "author": null,
+    "creation_date": "2020-03-14T08:16:48.413Z",
+    "numder_of_downloads": 0
+  }
+},
+{
+  "model": "webapp.filebase",
+  "pk": 3,
+  "fields": {
+    "name": "fytewuyg",
+    "file": "file_base/Xiaomi-60.jpg",
+    "access": "Common",
+    "author": 1,
+    "creation_date": "2020-03-14T08:17:03.889Z",
+    "numder_of_downloads": 0
+  }
+},
+{
+  "model": "webapp.filebase",
+  "pk": 4,
+  "fields": {
+    "name": "s6rtyufigoh",
+    "file": "file_base/1972195535_nwkvdAT.jpg",
+    "access": "Common",
+    "author": 1,
+    "creation_date": "2020-03-14T08:17:22.512Z",
+    "numder_of_downloads": 0
+  }
+},
+{
+  "model": "webapp.filebase",
+  "pk": 5,
+  "fields": {
+    "name": "test1",
+    "file": "file_base/1972195535_su7tCTU.jpg",
+    "access": "Common",
+    "author": null,
+    "creation_date": "2020-03-14T08:17:35.409Z",
+    "numder_of_downloads": 0
+  }
+},
+{
+  "model": "webapp.filebase",
+  "pk": 6,
+  "fields": {
+    "name": "test2",
+    "file": "file_base/1972195535_2uz89mK.jpg",
+    "access": "Common",
+    "author": null,
+    "creation_date": "2020-03-14T10:12:09.499Z",
+    "numder_of_downloads": 0
+  }
+},
+{
+  "model": "webapp.filebase",
+  "pk": 7,
+  "fields": {
+    "name": "test2",
+    "file": "file_base/admin_001_jJoHufT.png",
+    "access": "Common",
+    "author": 1,
+    "creation_date": "2020-03-14T10:12:25.928Z",
+    "numder_of_downloads": 0
+  }
+},
+{
+  "model": "webapp.filebase",
+  "pk": 8,
+  "fields": {
+    "name": "test",
+    "file": "file_base/1972195535_Sb2eovU.jpg",
+    "access": "Common",
+    "author": null,
+    "creation_date": "2020-03-14T10:12:40.742Z",
+    "numder_of_downloads": 0
+  }
+},
+{
+  "model": "webapp.filebase",
+  "pk": 9,
+  "fields": {
+    "name": "Xiaomi",
+    "file": "file_base/admin_001_5IEhDaO.png",
+    "access": "Common",
+    "author": null,
+    "creation_date": "2020-03-14T11:42:06.474Z",
+    "numder_of_downloads": 0
+  }
+},
+{
+  "model": "webapp.filebase",
+  "pk": 11,
+  "fields": {
+    "name": "Xiaomi",
+    "file": "file_base/admin_001_zMHKQS2.png",
+    "access": "Common",
+    "author": null,
+    "creation_date": "2020-03-14T11:50:24.984Z",
+    "numder_of_downloads": 0
+  }
+},
+{
+  "model": "webapp.filebase",
+  "pk": 12,
+  "fields": {
+    "name": "Xiaomi",
+    "file": "file_base/admin_001_BisWQCp.png",
+    "access": "Hidden",
+    "author": 1,
+    "creation_date": "2020-03-14T13:45:03.267Z",
+    "numder_of_downloads": 0
+  }
+}
+]

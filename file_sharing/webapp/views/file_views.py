@@ -20,6 +20,7 @@ class FilePage(SearchView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['files'] = FileBase.objects.filter(access='Common')
         return context
 
     def get_query(self):

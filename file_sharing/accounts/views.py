@@ -5,6 +5,7 @@ from django.contrib.auth import login
 from django.shortcuts import render, redirect, reverse
 from .forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from accounts.models import Profile
+from webapp.models import FileBase
 
 
 def register_view(request, *args, **kwargs):
@@ -26,6 +27,16 @@ class UserDetailView(DetailView):
     model = User
     template_name = 'user_detail.html'
     context_object_name = 'user_obj'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.user.is_authenticated == self.request.user:
+            context['file_add'] = FileBase.objects.filter(author=self.request.user)
+        else:
+            context['file_add'] = FileBase.objects.filter(access='Common', author=self.request.user)
+        return context
+
+
 
 
 class UserPersonalInfoChangeView(UserPassesTestMixin, UpdateView):
