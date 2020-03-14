@@ -2,9 +2,8 @@ from django.db.models import Q
 from webapp.models import FileBase
 from django.http import HttpResponseRedirect
 from .base_view import SearchView
-from django.views.generic import CreateView, DeleteView, DetailView
+from django.views.generic import CreateView, DeleteView, DetailView, UpdateView
 from webapp.forms import FileAnonForm, FileForm
-from django.contrib.auth.mixins import PermissionRequiredMixin
 
 from django.urls import reverse_lazy
 
@@ -51,12 +50,10 @@ class FileDetailPage(DetailView):
     template_name = 'file_detail.html'
     model = FileBase
 
-class FileDeletePage(PermissionRequiredMixin, DeleteView):
+
+class FileDeletePage(DeleteView):
     template_name = 'file/delete.html'
     model = FileBase
     success_url = reverse_lazy('webapp:index')
-    permission_required = 'webapp.delete_file'
-    login_url = reverse_lazy('webapp:login')
 
-    def has_permission(self):
-        return super().has_permission() or self.get_object().author == self.request.user
+

@@ -24,14 +24,18 @@
                         <p>дата загрузки: {{ filebase.creation_date|date:"d/m/Y" }}</p>
                     </div>
                     <div class="card-footer">
-                        <div class="col-3">
-
-                        </div>
-                        <div class="col-3">
-
-                        </div>
-                        <div class="col-3">
-                            <a href="{{ filebase.file.url }}" class="btn btn-outline-success ml-2" download>Скачать</a>
+                        <div class="row">
+                            {% if filebase.author.pk == user.pk %}
+                            <div class="col-3">
+                                 <a href="{% url 'webapp:delete_file' filebase.pk %}" class="btn btn-danger">Удалить</a>
+                            </div>
+                            <div class="col-3">
+                                 <a href="#" class="btn btn-outline-info">Редактировать</a>
+                            </div>
+                            {% endif %}
+                            <div class="col-3">
+                                <a href="{{ filebase.file.url }}" class="btn btn-outline-success ml-2" download>Скачать</a>
+                            </div>
                         </div>
                     </div>
                 </div>
