@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
 {% block title %}{% endblock %}
+{% block dropdown %}
+    {% include 'partial/simple_search.html' %}
+{% endblock %}
 {% block content %}
     {% if is_paginated %}
         {% include 'partial/pagination.html' %}
     {% endif %}
 
     <div class="row">
-        {% for file_on in file_all %}
+        {% for file_on in files %}
             <div class="col-6 col-md-4 col-lg-3 my-2">
                 <div class="card">
                     <div class="card-header">
@@ -20,7 +23,7 @@
                         {% endif %}
                     </div>
                     <div class="card-body">
-                        <p>Название файла: {{ file_on.name_file }}</p>
+                        <p>Название файла: {{ file_on.name}}</p>
                         <p>дата загрузки: {{ file_on.creation_date|date:"d/m/Y" }}</p>
                     </div>
                     <div class="card-footer">

@@ -1,5 +1,5 @@
 from django.urls import path
-from webapp.views import FilePage
+from webapp.views.file_views import FilePage
 
 app_name = 'webapp'
 
